@@ -47,6 +47,18 @@ public class HomeController {
 		return "editWiki";
 	}
 	
+	@GetMapping("viewWiki/{wikiId}")
+	public String viewWiki(Model model, @PathVariable Long wikiId) {
+		
+		dao.getWikiList()
+		.stream()
+		.filter(w -> w.getWikiId().equals(wikiId))
+		.findFirst()
+		.ifPresent(w -> model.addAttribute("wiki", w));
+		
+		return "viewWiki";
+	}
+	
 	@GetMapping("editWiki/{wikiId}")
 	public String editWiki(Model model, @PathVariable Long wikiId) {
 		

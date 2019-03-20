@@ -43,15 +43,13 @@
 			alt="Responsive image" />
 	</div>
 
-
-
 	<div class="text-center mt-sm-2 mb-sm-3">
 		<button type="button" id="add" class="btn btn-primary"
 			data-toggle="modal" data-target="#myModal">Add New Wiki 
 		</button>
 	</div>
 
-	<!-- Modal -->
+	<!-- Modal to add new Wiki-->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -64,16 +62,16 @@
 					</button>
 				</div>
 				<div class="modal-body">
-				
+				<!-- Wiki form input -->
 					<c:url value="/saveWiki" var="url" />
 					<form:form modelAttribute="wiki" method="post" action="${url}">
 		
-						Wiki Title: <form:input path="wikiName" />
-						<br />Info: <form:textarea rows="4" cols="50" path="wikiInfo" />
+						Wiki Title: <form:input class="mt-sm-1 mb-sm-1" path="wikiName" />
+						<br />Info: <form:textarea class="mb-sm-1" rows="4" cols="50" path="wikiInfo" />
 						<br />Wiki Picture: <form:input path="wikiPicture" />
 						<br />
 						<form:hidden path="wikiId" />
-						<input type="submit" class="btn btn-primary" value="Save Wiki" />
+						<input type="submit" class="btn btn-primary float-right" value="Save Wiki" />
 
 					</form:form>
 
@@ -86,9 +84,7 @@
 		</div>
 	</div>
 
-
-
-
+<!-- Card information for each wiki inside database -->
 	<div class="container">
 		<div class="row">
 
@@ -101,14 +97,15 @@
 							<h5 class="card-title">${wiki.wikiName}</h5>
 							<p class="card-text text-truncate">
 								${wiki.wikiInfo }<br />
+								<input type="hidden" value="${wiki.wikiId}" />
 							</p>
-							<c:url value="/editWiki/${wiki.wikiId}" var="editUrl" />
-							<a class="btn btn-primary" href="${editUrl}">View</a>
+							<c:url value="/viewWiki/${wiki.wikiId}" var="viewUrl" />
+							<a class="btn btn-primary" href="${viewUrl}">View</a>
 							<c:url value="/editWiki/${wiki.wikiId}" var="editUrl" />
 							<a class="btn btn-success" href="${editUrl}">Edit</a>
 							<c:url value="/deleteWiki/${wiki.wikiId}" var="deleteUrl" />
 							<a class="btn btn-danger float-right" href="${deleteUrl}">Delete</a>
-							<input type="hidden" value="${wiki.wikiId}" />
+							
 						</div>
 					</div>
 

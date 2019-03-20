@@ -2,7 +2,6 @@ package ca.sheridancollege.dao;
 
 import java.util.List;
 
-import ca.sheridancollege.beans.Student;
 import ca.sheridancollege.beans.Wiki;
 
 public interface DAO {

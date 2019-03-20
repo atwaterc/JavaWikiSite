@@ -8,10 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import ca.sheridancollege.beans.Student;
 import ca.sheridancollege.beans.Wiki;
 
-public class StudentDAO implements DAO {
+public class WikiDAO implements DAO {
 	// Opens Database session
 	SessionFactory sessionFactory = new Configuration().configure("ca/sheridancollege/config/hibernate.cfg.xml")
 			.buildSessionFactory();

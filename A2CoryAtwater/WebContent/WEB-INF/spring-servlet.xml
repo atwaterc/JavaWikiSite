@@ -20,5 +20,5 @@
 	<property name="prefix" value="/WEB-INF/jsps/"></property>
 	<property name="suffix" value=".jsp"></property>
 	</bean>
-	<bean id="studentDAO" class="ca.sheridancollege.dao.StudentDAO"></bean>
+	<bean id="studentDAO" class="ca.sheridancollege.dao.WikiDAO"></bean>
 </beans>

@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import ca.sheridancollege.beans.Student;
 import ca.sheridancollege.beans.Wiki;
 import ca.sheridancollege.dao.DAO;
-import ca.sheridancollege.dao.StudentDAO;
+import ca.sheridancollege.dao.WikiDAO;
 
 @Controller
 public class HomeController {
@@ -19,7 +18,7 @@ public class HomeController {
 	private DAO dao;
 
 	@Autowired
-	public HomeController(StudentDAO studentDAO) {
+	public HomeController(WikiDAO studentDAO) {
 		super();
 		this.dao = studentDAO;
 		dao.Populate();

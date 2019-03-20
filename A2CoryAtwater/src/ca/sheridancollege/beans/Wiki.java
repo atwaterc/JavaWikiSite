@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
+import org.hibernate.validator.constraints.Length;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +23,7 @@ public class Wiki {
 	private Long wikiId;
 	
 	private String wikiName;
+	@Length(min=1, max=5000)
 	private String wikiInfo;
 	private String wikiPicture;
 	

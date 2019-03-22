@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @NamedQuery(name="Wiki.getWikiList", query="from Wiki")
+@NamedQuery(name="Wiki.getSimilarWiki", query="from Wiki where wikiCategory =:wikiCategory")
 public class Wiki {
 	
 	@Id
@@ -23,13 +24,17 @@ public class Wiki {
 	private Long wikiId;
 	
 	private String wikiName;
-	@Length(min=1, max=5000)
+	private String wikiCategory;
+	
+	@Length(min=110, max=5000)
 	private String wikiInfo;
+	@Length(min=1, max=1000)
 	private String wikiPicture;
 	
-	public Wiki(String wikiName, String wikiInfo, String wikiPicture) {
+	public Wiki(String wikiName, String wikiCategory, String wikiInfo, String wikiPicture) {
 		super();
 		this.wikiName = wikiName;
+		this.wikiCategory = wikiCategory;
 		this.wikiInfo = wikiInfo;
 		this.wikiPicture = wikiPicture;
 	}

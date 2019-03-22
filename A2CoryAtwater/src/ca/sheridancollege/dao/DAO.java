@@ -12,4 +12,6 @@ public interface DAO {
 	public void deleteWiki(Long wikiId);
 
 	public void insertWiki(Wiki wiki);
+	
+	public List<Wiki> getSimilarWiki(String wikiCategory);
 }

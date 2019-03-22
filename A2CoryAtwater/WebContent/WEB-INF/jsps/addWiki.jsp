@@ -38,24 +38,22 @@
 	<div class="text-center">
 		<c:url value="/saveWiki" var="url" />
 		<form:form modelAttribute="wiki" method="post" action="${url}">
-			<div class="form-group jumbotron-img-top">
+			<div class="form-group jumbotron-img-top mb-sm-5">
 				<c:url value="/" var="homeUrl" />
 				<a class="btn btn-success float-left mt-sm-2 ml-sm-2"
-					href="${homeUrl}">Back</a>
+					href="${homeUrl}">Cancel</a>
 				<h1 class="display-1 jumbotron-text">
-					<form:input path="wikiName" />
+					Wiki Name: <form:input path="wikiName" />
 				</h1>
 			</div>
-			<div class="form-group">
-				<c:url value="/deleteWiki/${wiki.wikiId}" var="deleteUrl" />
-				<a class="btn btn-danger" href="${deleteUrl}">Delete</a>
-			</div>
+			<br /><br /><br /><br />
 			<div class="form-group">
 				Wiki Category:
 				<form:input path="wikiCategory" />
 			</div>
 			<div class="form-group ml-sm-5 mr-sm-5">
 				<br />
+				Wiki Info:
 				<form:textarea rows="4" cols="50" path="wikiInfo" />
 			</div>
 			<div class="form-group">

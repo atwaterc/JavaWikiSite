@@ -29,6 +29,7 @@
 	height: 8vw;
 	object-fit: cover;
 }
+
 </style>
 </head>
 <body
@@ -40,82 +41,38 @@
 	</div>
 
 	<div class="text-center mt-sm-2 mb-sm-3">
-		<button type="button" id="add" class="btn btn-primary"
-			data-toggle="modal" data-target="#myModal">Add New Wiki 
-		</button>
+		<c:url value="/addWiki" var="addUrl" />
+		<a class="btn btn-primary" href="${addUrl}">Add New Wiki</a>
 	</div>
 
-	<!-- Modal to add new Wiki-->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Add New Wiki</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-				<!-- Wiki form input -->
-					<c:url value="/saveWiki" var="url" />
-					<form:form modelAttribute="wiki" method="post" action="${url}">
-		
-						Wiki Title: <form:input class="mt-sm-1 mb-sm-1" path="wikiName" />
-						<br />Info: <form:textarea class="mb-sm-1" rows="4" cols="50" path="wikiInfo" />
-						<br />Wiki Picture: <form:input path="wikiPicture" />
-						<br />
-						<form:hidden path="wikiId" />
-						<input type="submit" class="btn btn-primary float-right" value="Save Wiki" />
-
-					</form:form>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Cancel</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-<!-- Card information for each wiki inside database -->
+	<!-- Card information for each wiki inside database -->
 	<div class="container">
 		<div class="row">
-
 			<c:forEach var="wiki" items="${wikiList}">
-				<div class="col-sm">
-					<div class="card mb-sm-2" style="width: 18rem; flex-grow: 2;">
-						<img class="card-img-top"
-							src="<c:url value="${wiki.wikiPicture}"/>" alt="Card image cap">
-						<div class="card-body">
-							<h5 class="card-title">${wiki.wikiName}</h5>
-							<p class="card-text text-truncate">
-								${wiki.wikiInfo }<br />
-								<input type="hidden" value="${wiki.wikiId}" />
-							</p>
-							<c:url value="/viewWiki/${wiki.wikiId}" var="viewUrl" />
-							<a class="btn btn-primary" href="${viewUrl}">View</a>
-							<c:url value="/editWiki/${wiki.wikiId}" var="editUrl" />
-							<a class="btn btn-success" href="${editUrl}">Edit</a>
-							<c:url value="/deleteWiki/${wiki.wikiId}" var="deleteUrl" />
-							<a class="btn btn-danger float-right" href="${deleteUrl}">Delete</a>
-							
+
+				<c:if test="${not empty wiki.wikiId}">
+
+					<div class="col-sm">
+						<div class="card mb-sm-2" style="width: 18rem; flex-grow: 2;">
+							<img class="card-img-top"
+								src="<c:url value="${wiki.wikiPicture}"/>" alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">${wiki.wikiName}</h5>
+								<p class="card-text text-truncate">
+									${wiki.wikiInfo }<br /> <input type="hidden"
+										value="${wiki.wikiId}" />
+										<input type="hidden"
+										value="${wiki.wikiCategory}" />
+								</p>
+								<c:url value="/viewWiki/${wiki.wikiId}/${wiki.wikiCategory }" var="viewUrl" />
+								<a class="btn btn-primary float-right" href="${viewUrl}">Learn More</a>
+							</div>
 						</div>
 					</div>
-
-				</div>
+				</c:if>
 			</c:forEach>
-
 		</div>
 	</div>
 </body>
 
-
-<script>
-	$('add').on('click', function() {
-		$('#myModal').modal();
-	});
-</script>
 </html>

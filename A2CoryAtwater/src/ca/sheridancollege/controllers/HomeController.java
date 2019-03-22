@@ -1,5 +1,7 @@
 package ca.sheridancollege.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,14 +28,13 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String Home(Model model) {
-		Wiki wiki = new Wiki();
-		model.addAttribute("wiki", wiki);
+		model.addAttribute("wiki", new Wiki());
 		model.addAttribute("wikiList", dao.getWikiList());
 		return "home";
 	}
 
 	@PostMapping("saveWiki")
-	public String saveStudent(Model model, @ModelAttribute Wiki wiki) {
+	public String saveWiki(Model model, @ModelAttribute Wiki wiki) {
 		
 		dao.insertWiki(wiki);
 		
@@ -43,17 +44,21 @@ public class HomeController {
 	
 	@GetMapping("addWiki")
 	public String addWiki(Model model, @ModelAttribute Wiki wiki) {
-		return "editWiki";
+		return "addWiki";
 	}
 	
-	@GetMapping("viewWiki/{wikiId}")
-	public String viewWiki(Model model, @PathVariable Long wikiId) {
-		
+	@GetMapping("viewWiki/{wikiId}/{wikiCategory}")
+	public String viewWiki(Model model, @PathVariable Long wikiId, @PathVariable String wikiCategory) {
 		dao.getWikiList()
 		.stream()
 		.filter(w -> w.getWikiId().equals(wikiId))
 		.findFirst()
 		.ifPresent(w -> model.addAttribute("wiki", w));
+		
+		List<Wiki> t = dao.getSimilarWiki(wikiCategory);
+		t.removeIf(w -> w.getWikiId().equals(wikiId));
+		
+		model.addAttribute("wikiCategory", t);
 		
 		return "viewWiki";
 	}

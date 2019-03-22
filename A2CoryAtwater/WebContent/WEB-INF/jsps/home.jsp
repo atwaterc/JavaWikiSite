@@ -57,7 +57,7 @@
 							<img class="card-img-top"
 								src="<c:url value="${wiki.wikiPicture}"/>" alt="Card image cap">
 							<div class="card-body">
-								<h5 class="card-title">${wiki.wikiName}</h5>
+								<h5 class="card-title ">${wiki.wikiName}</h5>
 								<p class="card-text text-truncate">
 									${wiki.wikiInfo }<br /> <input type="hidden"
 										value="${wiki.wikiId}" />
@@ -65,7 +65,7 @@
 										value="${wiki.wikiCategory}" />
 								</p>
 								<c:url value="/viewWiki/${wiki.wikiId}/${wiki.wikiCategory }" var="viewUrl" />
-								<a class="btn btn-primary float-right" href="${viewUrl}">Learn More</a>
+								<a class="btn btn-info float-right" href="${viewUrl}">Learn More</a>
 							</div>
 						</div>
 					</div>

@@ -60,7 +60,7 @@
 		<c:url value="/saveWiki" var="url" />
 		<form:form modelAttribute="wiki" method="post" action="${url}">
 
-			<div class="card sticky-top">
+			<div class="card sticky-top shadow	">
 				<c:choose>
 					<c:when test="${wiki.wikiCategory == 'Sports'}">
 						<div class="float-right">
@@ -107,7 +107,8 @@
 				
 
 				<div class="card-img-overlay">
-					<h1 class="display-1 jumbotron-text">${wiki.wikiName}</h1>
+					<h1 class="display-1 jumbotron-text">${wiki.wikiName} </h1>
+					<span class="h6">(${wiki.wikiCategory})</span>
 				</div>
 			</div>
 
@@ -136,7 +137,7 @@
 			</div>
 			
 			<div class="form-group ml-sm-5 mr-sm-5">
-				<img class="wiki-img-right float-right rounded mb-sm-2 mr-sm-5 border border-primary"
+				<img class="wiki-img-right float-right rounded mb-sm-2 mr-sm-5 border border-primary shadow-lg"
 					src="<c:url value="${wiki.wikiPicture}"/>" alt="..."> <br />
 				<label class="mb-sm-4 text-left" style="float: left;"><span class="info-span">${wiki.wikiInfo}</span></label>
 			</div>

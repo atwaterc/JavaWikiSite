@@ -34,12 +34,23 @@
 	height: 15vw;
 }
 
+.jumbotron-img-left {
+	width: 25%;
+	height: 15vw;
+}
+
 .wiki-img {
 	width: 100%;
 }
 
 .jumbotron-text {
 	padding-top: 10px;
+}
+
+.info-span { 
+    display:block;
+    width:850px;
+    word-wrap:break-word;
 }
 </style>
 </head>
@@ -53,41 +64,49 @@
 				<c:choose>
 					<c:when test="${wiki.wikiCategory == 'Sports'}">
 						<div class="float-right">
-							<img class="jumbotron-img-top float-right"
+							<img class="jumbotron-img-top float-right mt-sm-0"
 								src="<c:url value="/images/sports-bg.jpg"/>" alt="...">
+								<img class="jumbotron-img-top float-left"
+								src="<c:url value="/images/corner-design.png"/>" alt="...">
 						</div>
 					</c:when>
 					<c:when test="${wiki.wikiCategory == 'History'}">
 						<div class="float-right">
 							<img class="jumbotron-img-top float-right"
 								src="<c:url value="/images/history-bg.png"/>" alt="...">
+								<img class="jumbotron-img-top float-left"
+								src="<c:url value="/images/corner-design.png"/>" alt="...">
 						</div>
 					</c:when>
 					<c:when test="${wiki.wikiCategory == 'Music'}">
 						<div class="float-right">
 							<img class="jumbotron-img-top float-right"
 								src="<c:url value="/images/music-bg.png"/>" alt="...">
+								<img class="jumbotron-img-top float-left"
+								src="<c:url value="/images/corner-design.png"/>" alt="...">
 						</div>
 					</c:when>
 					<c:when test="${wiki.wikiCategory == 'Technology'}">
 						<div class="float-right">
 							<img class="jumbotron-img-top float-right"
 								src="<c:url value="/images/robot-bg.png"/>" alt="...">
+								<img class="jumbotron-img-top float-left"
+								src="<c:url value="/images/corner-design.png"/>" alt="...">
 						</div>
 					</c:when>
 					<c:otherwise>
 						<div class="float-right">
 							<img class="jumbotron-img-top float-right"
-								src="<c:url value="/images/jumbotron-bg.jpg"/>" alt="...">
+								src="<c:url value="/images/img-nf.jpg"/>" alt="...">
+								<img class="jumbotron-img-top float-left"
+								src="<c:url value="/images/corner-design.png"/>" alt="...">
 						</div>
 					</c:otherwise>
 				</c:choose>
-
+				
+				
 
 				<div class="card-img-overlay">
-					<c:url value="/" var="homeUrl" />
-					<a class="btn btn-success float-left mt-sm-2 ml-sm-2"
-						href="${homeUrl}">Home</a>
 					<h1 class="display-1 jumbotron-text">${wiki.wikiName}</h1>
 				</div>
 			</div>
@@ -95,6 +114,9 @@
 			<div class="form-group mt-sm-3">
 				<!-- Dropdown for similar categories -->
 				<div class="dropdown">
+				<c:url value="/" var="homeUrl" />
+					<a class="btn btn-primary"
+						href="${homeUrl}">Home</a>
 				<c:url value="/editWiki/${wiki.wikiId}" var="editUrl" />
 				<a class="btn btn-success" href="${editUrl}">Edit</a>
 				<c:url value="/deleteWiki/${wiki.wikiId}" var="deleteUrl" />
@@ -114,9 +136,9 @@
 			</div>
 			
 			<div class="form-group ml-sm-5 mr-sm-5">
-				<img class="wiki-img-right float-right rounded mb-sm-2 mr-sm-5"
+				<img class="wiki-img-right float-right rounded mb-sm-2 mr-sm-5 border border-primary"
 					src="<c:url value="${wiki.wikiPicture}"/>" alt="..."> <br />
-				<label class="mb-sm-4" style="float: left; width: 850px;">${wiki.wikiInfo}</label>
+				<label class="mb-sm-4 text-left" style="float: left;"><span class="info-span">${wiki.wikiInfo}</span></label>
 			</div>
 			<div class="form-group">
 				<form:hidden path="wikiId" />

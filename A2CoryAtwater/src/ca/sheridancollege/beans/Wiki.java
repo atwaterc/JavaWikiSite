@@ -28,7 +28,7 @@ public class Wiki {
 	@Length(min=1, max=50)
 	private String wikiCategory;
 	
-	@Length(min=110, max=5000)
+	@Length(min=1, max=5000)
 	private String wikiInfo;
 	@Length(min=10, max=2000)
 	private String wikiPicture;

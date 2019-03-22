@@ -62,12 +62,60 @@ public class WikiDAO implements DAO {
 				"Spring 5 is announced to be built upon Reactive Streams compatible Reactor Core.[10]",
 				"/images/spring.png");
 
+		Wiki w7 = new Wiki("War of 1812","History","The War of 1812 was a conflict fought between the United States, the United Kingdom, and their respective allies from June 1812 to February 1815. Historians in Britain often see it as a minor theater of the Napoleonic Wars; in the United States and Canada, it is seen as a war in its own right.\r\n" + 
+				"\r\n" + 
+				"From the outbreak of war with Napoleonic France, Britain had enforced a naval blockade to choke off neutral trade to France, which the US contested as illegal under international law. To man the blockade, Britain impressed American merchant sailors into the Royal Navy. Incidents such as the Chesapeake–Leopard affair, which happened five years before the war, inflamed anti-British sentiment in the US. In 1811, the British were in turn outraged by the Little Belt affair, in which 11 British sailors died.[9][10] Britain supplied Native Americans who raided American settlers on the frontier, hindering American expansion and provoking resentment.[11] Historians debate whether the desire to annex some or all of British North America (Canada) contributed to the American decision to go to war. On June 18, 1812, US President James Madison, after heavy pressure from the War Hawks in Congress, signed the American declaration of war into law.[12]\r\n" + 
+				"\r\n" + 
+				"With most of its army in Europe fighting Napoleon, Britain adopted a defensive strategy, with offensive operations initially limited to the border, and the western frontier. American prosecution of the war effort suffered from its unpopularity, especially in New England, where it was derogatorily referred to as \"Mr. Madison's War\". American defeats at the Siege of Detroit and the Battle of Queenston Heights thwarted attempts to seize Upper Canada, improving British morale. American attempts to invade Lower Canada and capture Montreal also failed. In 1813, the Americans won the Battle of Lake Erie, gaining control of the lake, and at the Battle of the Thames defeated Tecumseh's Confederacy, securing a primary war goal. A final American attempt to invade Canada was fought to a draw at the Battle of Lundy's Lane during the summer of 1814. At sea, the powerful Royal Navy blockaded American ports, cutting off trade and allowing the British to raid the coast at will. In 1814, one of these raids burned the capital, Washington, but the Americans later repulsed British attempts to invade New York and Maryland, ending invasions of the northern and mid-Atlantic United States from Canada.[13]\r\n" + 
+				"\r\n" + 
+				"Fighting also took place overseas in the Atlantic and Pacific oceans. In neighbouring Spanish Florida, a two-day battle for the city of Pensacola ended in Spanish surrender.[14]\r\n" + 
+				"\r\n" + 
+				"In Britain, there was mounting opposition to wartime taxation; merchants demanded to reopen trade with America. With the abdication of Napoleon, the war with France ended and Britain ceased impressment, rendering the issue of the impressment of American sailors moot. The British were then able to increase the strength of the blockade on the United States coast, annihilating American maritime trade, but attempts to invade the U.S. ended unsuccessfully, at which point both sides began to desire peace. [15]\r\n" + 
+				"\r\n" + 
+				"Peace negotiations began in August 1814, and the Treaty of Ghent was signed on December 24. News of the peace did not reach America for some time. Unaware of the treaty, British forces invaded Louisiana and were defeated at the Battle of New Orleans in January 1815. These late victories were viewed by Americans as having restored national honour, leading to the collapse of anti-war sentiment and the beginning of the Era of Good Feelings, a period of national unity. News of the treaty arrived shortly thereafter, halting military operations. The treaty was unanimously ratified by the US Senate on February 17, 1815, ending the war with no boundary changes.[16]","/images/war-1812.jpg");
+		Wiki w8 = new Wiki("Ariana Grande","Music","Ariana Grande-Butera (born June 26, 1993)[2] is an American singer, songwriter and actress. After starring in the 2008 Broadway musical 13, she rose to prominence for her portrayal of Cat Valentine on the Nickelodeon television series Victorious (2010-13), and its spinoff Sam & Cat (2014-15). Grande made her first musical appearance on the soundtrack for Victorious and was signed to Republic Records in 2011 after music executive Monte Lipman came across one of her YouTube videos covering songs.\r\n" + 
+				"\r\n" + 
+				"Grande released her debut album, Yours Truly in 2013, which was influenced by 1990s R&B and 1950s doo-wop, and peaked atop the US Billboard 200. Grande ventured into EDM on her second album, My Everything (2014), which also topped the US charts and featured four top ten singles on the Billboard Hot 100, the most by any artist in 2014: \"Problem\", \"Break Free\", \"Bang Bang\", and \"Love Me Harder\". Her third album, Dangerous Woman (2016), explored pop and dance, and became her first number-one album in the United Kingdom. She experimented with trap on her next two releases, Sweetener (2018) and Thank U, Next (2019), with the former winning a Grammy Award for Best Pop Vocal Album, while the latter had largest streaming week ever for a pop album. With the singles \"Thank U, Next\" , \"7 Rings\", and \"Break Up with Your Girlfriend, I'm Bored\", Grande became the first solo artist to hold the top three spots on the Billboard Hot 100 simultaneously, and the second musical act overall after The Beatles in 1964. Grande is also the first artist to have the lead singles from each of their first five studio albums debut within the top-ten on the US charts.[3]\r\n" + 
+				"\r\n" + 
+				"Critics have compared Grande's wide vocal range to that of Mariah Carey. Her accolades include one Grammy Award, one BRIT Award, three American Music Awards, three MTV Europe Music Awards and two MTV Video Music Awards. She has supported a range of charities[4] and has a large following on social media, becoming the most followed woman on Instagram in February 2019.[5][6] In 2016, Time named Grande as one of the 100 most influential people in the world on their annual list,[7] and in 2018, Billboard named her Woman of the Year.[8]","/images/ariana-grande.jpg"); 
+		Wiki w9 = new Wiki("Kotlin","Technology","Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of its standard library depends on the Java Class Library,[2] but type inference allows its syntax to be more concise. Kotlin mainly targets the JVM, but also compiles to JavaScript or native code (via LLVM). Kotlin is sponsored by JetBrains and Google through the Kotlin Foundation.\r\n" + 
+				"\r\n" + 
+				"Kotlin is officially supported by Google for mobile development on Android.[3] Since the release of Android Studio 3.0 in October 2017, Kotlin is included as an alternative to the standard Java compiler. The Android Kotlin compiler lets the user choose between targeting Java 6 or Java 8 compatible bytecode.[4]  In July 2011, JetBrains unveiled Project Kotlin, a new language for the JVM, which had been under development for a year.[5] JetBrains lead Dmitry Jemerov said that most languages did not have the features they were looking for, with the exception of Scala. However, he cited the slow compilation time of Scala as a deficiency.[5] One of the stated goals of Kotlin is to compile as quickly as Java. In February 2012, JetBrains open sourced the project under the Apache 2 license.[6]\r\n" + 
+				"\r\n" + 
+				"The name comes from Kotlin Island, near St. Petersburg. Andrey Breslav mentioned that the team decided to name it after an island just like Java was named after the Indonesian island of Java[7] (though the programming language Java was perhaps named after the coffee[8]).\r\n" + 
+				"\r\n" + 
+				"JetBrains hopes that the new language will drive IntelliJ IDEA sales.[9]\r\n" + 
+				"\r\n" + 
+				"Kotlin v1.0 was released on February 15, 2016.[10] This is considered to be the first officially stable release and JetBrains has committed to long-term backwards compatibility starting with this version.\r\n" + 
+				"\r\n" + 
+				"At Google I/O 2017, Google announced first-class support for Kotlin on Android.[3]\r\n" + 
+				"\r\n" + 
+				"Kotlin v1.2 was released on November 28, 2017.[11] Sharing code between JVM and Javascript platforms feature was newly added to this release.\r\n" + 
+				"\r\n" + 
+				"Kotlin v1.3 was released on October 29, 2018, bringing coroutines for asynchronous programming.  Development lead Andrey Breslav has said that Kotlin is designed to be an industrial-strength object-oriented language, and a \"better language\" than Java, but still be fully interoperable with Java code, allowing companies to make a gradual migration from Java to Kotlin.[12]\r\n" + 
+				"\r\n" + 
+				"Semicolons are optional as a statement terminator; in most cases a newline is sufficient for the compiler to deduce that the statement has ended.[13]\r\n" + 
+				"\r\n" + 
+				"Kotlin variable declarations and parameter lists have the data type come after the variable name (and with a colon separator), similar to Pascal.\r\n" + 
+				"\r\n" + 
+				"Variables in Kotlin can be immutable, declared with the val keyword, or mutable, declared with the var keyword.[14]\r\n" + 
+				"\r\n" + 
+				"Class members are public by default, and classes themselves are final by default, meaning that creating a derived class is disabled unless the base class is declared with the open keyword.\r\n" + 
+				"\r\n" + 
+				"In addition to the classes and methods (called member functions in Kotlin) of object-oriented programming, Kotlin also supports procedural programming with the use of functions.[15]\r\n" + 
+				"\r\n" + 
+				"Kotlin functions (and constructors) support default arguments, variable-length argument lists, named arguments and overloading by unique signature. Class member functions are virtual, i.e. dispatched based on the runtime type of the object they are called on.","/images/kotlin.png");
 		session.saveOrUpdate(w1);
+		session.saveOrUpdate(w9);
 		session.saveOrUpdate(w2);
-		session.saveOrUpdate(w3);
-		session.saveOrUpdate(w4);
-		session.saveOrUpdate(w5);
 		session.saveOrUpdate(w6);
+		session.saveOrUpdate(w3);
+		session.saveOrUpdate(w7);
+		session.saveOrUpdate(w5);
+		session.saveOrUpdate(w8);
+		session.saveOrUpdate(w4);
+		
+		
 		// transaction
 		session.beginTransaction();
 

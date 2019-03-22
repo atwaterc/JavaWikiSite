@@ -53,7 +53,7 @@
 				<c:if test="${not empty wiki.wikiId}">
 
 					<div class="col-sm">
-						<div class="card mb-sm-2" style="width: 18rem; flex-grow: 2;">
+						<div class="card mb-sm-2" style="width: 20rem; flex-grow: 2;">
 							<img class="card-img-top"
 								src="<c:url value="${wiki.wikiPicture}"/>" alt="Card image cap">
 							<div class="card-body">

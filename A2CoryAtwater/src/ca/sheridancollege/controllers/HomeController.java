@@ -1,6 +1,11 @@
 package ca.sheridancollege.controllers;
 
 import java.util.List;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 
 import ca.sheridancollege.beans.Wiki;
 import ca.sheridancollege.dao.DAO;
@@ -36,7 +42,21 @@ public class HomeController {
 	@PostMapping("saveWiki")
 	public String saveWiki(Model model, @ModelAttribute Wiki wiki) {
 		
-		dao.insertWiki(wiki);
+		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+		Set<ConstraintViolation<Wiki>> constraintViolations = validator.validate(wiki);
+
+		if (constraintViolations.size() > 0) {
+			for (ConstraintViolation<Wiki> violation : constraintViolations) {
+				model.addAttribute(violation.getPropertyPath().toString().replace(".", "_"), violation.getMessage());
+				model.addAttribute("wiki", wiki);
+			}
+			return "addWiki";
+		}
+		else {
+			dao.insertWiki(wiki);
+		}
+		
+		
 		
 		model.addAttribute("wikiList", dao.getWikiList());
 		return "home";

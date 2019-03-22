@@ -45,6 +45,7 @@
 				<h1 class="display-1 jumbotron-text">
 					<form:input path="wikiName" />
 				</h1>
+				<span style="color:red">${wikiName}</span>
 			</div>
 			<div class="form-group">
 				<c:url value="/deleteWiki/${wiki.wikiId}" var="deleteUrl" />
@@ -53,14 +54,17 @@
 			<div class="form-group">
 				Wiki Category:
 				<form:input path="wikiCategory" />
+				<span style="color:red">${wikiCategory}</span>
 			</div>
 			<div class="form-group ml-sm-5 mr-sm-5">
 				<br />
 				<form:textarea rows="4" cols="50" path="wikiInfo" />
+				<span style="color:red">${wikiInfo}</span>
 			</div>
 			<div class="form-group">
 				Wiki Front Page Picture:
 				<form:input class="input-image" path="wikiPicture" />
+				<span style="color:red">${wikiPicture}</span>
 				<form:hidden path="wikiId" />
 			</div>
 			<input type="submit" class="btn btn-primary" value="Save Wiki" />

@@ -23,12 +23,14 @@ public class Wiki {
 	@GeneratedValue
 	private Long wikiId;
 	
+	@Length(min=3, max=25)
 	private String wikiName;
+	@Length(min=1, max=50)
 	private String wikiCategory;
 	
 	@Length(min=110, max=5000)
 	private String wikiInfo;
-	@Length(min=1, max=1000)
+	@Length(min=10, max=2000)
 	private String wikiPicture;
 	
 	public Wiki(String wikiName, String wikiCategory, String wikiInfo, String wikiPicture) {

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 import ca.sheridancollege.beans.Wiki;
 import ca.sheridancollege.dao.DAO;
 import ca.sheridancollege.dao.WikiDAO;
@@ -41,7 +40,7 @@ public class HomeController {
 
 	@PostMapping("saveWiki")
 	public String saveWiki(Model model, @ModelAttribute Wiki wiki) {
-		
+
 		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 		Set<ConstraintViolation<Wiki>> constraintViolations = validator.validate(wiki);
 
@@ -51,58 +50,49 @@ public class HomeController {
 				model.addAttribute("wiki", wiki);
 			}
 			return "addWiki";
-		}
-		else {
+		} else {
 			dao.insertWiki(wiki);
 		}
-		
-		
-		
+
 		model.addAttribute("wikiList", dao.getWikiList());
 		return "home";
 	}
-	
+
 	@GetMapping("addWiki")
 	public String addWiki(Model model, @ModelAttribute Wiki wiki) {
 		return "addWiki";
 	}
-	
+
 	@GetMapping("viewWiki/{wikiId}/{wikiCategory}")
 	public String viewWiki(Model model, @PathVariable Long wikiId, @PathVariable String wikiCategory) {
-		dao.getWikiList()
-		.stream()
-		.filter(w -> w.getWikiId().equals(wikiId))
-		.findFirst()
-		.ifPresent(w -> model.addAttribute("wiki", w));
-		
-		List<Wiki> t = dao.getSimilarWiki(wikiCategory);
-		t.removeIf(w -> w.getWikiId().equals(wikiId));
-		
-		model.addAttribute("wikiCategory", t);
-		
+		dao.getWikiList().stream().filter(w -> w.getWikiId().equals(wikiId)).findFirst()
+				.ifPresent(w -> model.addAttribute("wiki", w));
+
+		List<Wiki> findSimilarWikis = dao.getSimilarWiki(wikiCategory);
+		findSimilarWikis.removeIf(w -> w.getWikiId().equals(wikiId));
+
+		model.addAttribute("wikiCategory", findSimilarWikis);
+
 		return "viewWiki";
 	}
-	
+
 	@GetMapping("editWiki/{wikiId}")
 	public String editWiki(Model model, @PathVariable Long wikiId) {
-		
-		dao.getWikiList()
-			.stream()
-			.filter(w -> w.getWikiId().equals(wikiId))
-			.findFirst()
-			.ifPresent(w -> model.addAttribute("wiki", w));
-		
-		dao.getWikiList()
-			.removeIf(w -> w.getWikiId().equals(wikiId));
+
+		dao.getWikiList().stream().filter(w -> w.getWikiId().equals(wikiId)).findFirst()
+				.ifPresent(w -> model.addAttribute("wiki", w));
+
+		dao.getWikiList().removeIf(w -> w.getWikiId().equals(wikiId));
 
 		return "editWiki";
 	}
 
 	@GetMapping("deleteWiki/{wikiId}")
 	public String deleteWiki(Model model, @PathVariable Long wikiId) {
-		dao.deleteWiki(wikiId);
 		
+		dao.deleteWiki(wikiId);
 		model.addAttribute("wikiList", dao.getWikiList());
+		
 		return "home";
 	}
 }

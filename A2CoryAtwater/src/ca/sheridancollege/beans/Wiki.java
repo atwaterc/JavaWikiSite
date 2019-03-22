@@ -15,24 +15,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@NamedQuery(name="Wiki.getWikiList", query="from Wiki")
-@NamedQuery(name="Wiki.getSimilarWiki", query="from Wiki where wikiCategory =:wikiCategory")
+@NamedQuery(name = "Wiki.getWikiList", query = "from Wiki")
+@NamedQuery(name = "Wiki.getSimilarWiki", query = "from Wiki where wikiCategory =:wikiCategory")
 public class Wiki {
-	
+
 	@Id
 	@GeneratedValue
 	private Long wikiId;
-	
-	@Length(min=3, max=25)
+
+	@Length(min = 3, max = 25)
 	private String wikiName;
-	@Length(min=1, max=50)
+	@Length(min = 1, max = 50)
 	private String wikiCategory;
-	
-	@Length(min=1, max=5000)
+
+	@Length(min = 1, max = 5000)
 	private String wikiInfo;
-	@Length(min=10, max=2000)
+	@Length(min = 10, max = 2000)
 	private String wikiPicture;
-	
+
 	public Wiki(String wikiName, String wikiCategory, String wikiInfo, String wikiPicture) {
 		super();
 		this.wikiName = wikiName;
@@ -40,7 +40,5 @@ public class Wiki {
 		this.wikiInfo = wikiInfo;
 		this.wikiPicture = wikiPicture;
 	}
-	
-	
-	
+
 }

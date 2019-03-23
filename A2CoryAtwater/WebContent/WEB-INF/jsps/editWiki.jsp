@@ -36,6 +36,9 @@
 </head>
 <body>
 	<div class="text-center">
+		<div style="background-color: red">
+			<marquee behavior="scroll" direction="left">Time of Edit: ${date} </marquee>
+		</div>
 		<c:url value="/saveWiki" var="url" />
 		<form:form modelAttribute="wiki" method="post" action="${url}">
 			<div class="form-group jumbotron-img-top">
@@ -70,6 +73,7 @@
 			</div>
 			<input type="submit" class="btn btn-primary" value="Update Wiki" />
 		</form:form>
+
 	</div>
 </body>
 </html>

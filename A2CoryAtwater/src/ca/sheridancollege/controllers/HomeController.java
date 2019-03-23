@@ -1,5 +1,6 @@
 package ca.sheridancollege.controllers;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -19,6 +20,10 @@ import ca.sheridancollege.beans.Wiki;
 import ca.sheridancollege.dao.DAO;
 import ca.sheridancollege.dao.WikiDAO;
 
+
+/* For extra functionality I added a similar categories dropdown to each viewWiki page.  It will
+ * allow the user to see other related pages without going back to the home page
+ * */
 @Controller
 public class HomeController {
 
@@ -83,6 +88,10 @@ public class HomeController {
 				.ifPresent(w -> model.addAttribute("wiki", w));
 
 		dao.getWikiList().removeIf(w -> w.getWikiId().equals(wikiId));
+		
+		Date date = new Date();
+		
+		model.addAttribute("date", date);
 
 		return "editWiki";
 	}

@@ -26,7 +26,7 @@
 <style>
 .jumbotron-img-top {
 	width: 20%;
-	height: 15vw;
+	height: 13vw;
 }
 
 .wiki-img-right {
